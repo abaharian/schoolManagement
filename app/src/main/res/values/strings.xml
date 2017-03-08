@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">دبیرستان شهید علیمردانی</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_username">نام کاربری</string>
+    <string name="prompt_password">گذرواژه</string>
+    <string name="action_sign_in">ورود یا ثبت نام</string>
+    <string name="action_sign_in_short">ورود</string>
+    <string name="action_register">ثبت نام</string>
+    <string name="error_invalid_email">نام کاربری مجاز نیست</string>
+    <string name="error_invalid_password">گگذرواژه از حداقل مجاز کوتاه تر است</string>
+    <string name="error_incorrect_password">گذرواژه صحیح نیست</string>
+    <string name="error_field_required">این بخش حتما باید وارد شود</string>
+    <string name="school_name">دبیرستان شهید علیمردانی</string>
+    <string name="first_name">نام</string>
+    <string name="last_name">نام خانوادگی</string>
+    <string name="phone_number">شماره تلفن</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+</resources>
