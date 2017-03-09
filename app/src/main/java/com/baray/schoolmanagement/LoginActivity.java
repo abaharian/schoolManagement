@@ -33,6 +33,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import webapi.Role;
+import webapi.Webservice;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -46,19 +49,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private static final int REQUEST_READ_CONTACTS = 0;
 
     /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-    /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private AutoCompleteTextView etUserName;
+    private AutoCompleteTextView etUsername;
     private EditText etPassword;
     private View mProgressView;
     private View mLoginFormView;
@@ -68,7 +64,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        etUserName = (AutoCompleteTextView) findViewById(R.id.login_et_username);
+        etUsername = (AutoCompleteTextView) findViewById(R.id.login_et_username);
         populateAutoComplete();
 
         etPassword = (EditText) findViewById(R.id.login_et_password);
@@ -100,6 +96,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        String username = Application.getApplication().getUsername();
+        if(username != null && username.length() > 0){
+            String password = Application.getApplication().getPassword();
+            showProgress(true);
+            mAuthTask = new UserLoginTask(username, password, true);
+            mAuthTask.execute((Void) null);
+        }
     }
 
     private void populateAutoComplete() {
@@ -118,7 +122,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             return true;
         }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
-            Snackbar.make(etUserName, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(etUsername, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
                     .setAction(android.R.string.ok, new View.OnClickListener() {
                         @Override
                         @TargetApi(Build.VERSION_CODES.M)
@@ -157,11 +161,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         // Reset errors.
-        etUserName.setError(null);
+        etUsername.setError(null);
         etPassword.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = etUserName.getText().toString();
+        String username = etUsername.getText().toString();
         String password = etPassword.getText().toString();
 
         boolean cancel = false;
@@ -174,14 +178,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             cancel = true;
         }
 
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            etUserName.setError(getString(R.string.error_field_required));
-            focusView = etUserName;
+        // Check for a valid username address.
+        if (TextUtils.isEmpty(username)) {
+            etUsername.setError(getString(R.string.error_field_required));
+            focusView = etUsername;
             cancel = true;
-        } else if (!isEmailValid(email)) {
-            etUserName.setError(getString(R.string.error_invalid_email));
-            focusView = etUserName;
+        } else if (!isEmailValid(username)) {
+            etUsername.setError(getString(R.string.error_invalid_email));
+            focusView = etUsername;
             cancel = true;
         }
 
@@ -193,7 +197,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
+            mAuthTask = new UserLoginTask(username, password, true);
             mAuthTask.execute((Void) null);
         }
     }
@@ -203,7 +207,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
         return password.length() > 4;
     }
 
@@ -283,7 +286,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 new ArrayAdapter<>(LoginActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
-        etUserName.setAdapter(adapter);
+        etUsername.setAdapter(adapter);
     }
 
 
@@ -303,17 +306,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
+        private final String mUsername;
         private final String mPassword;
+        Webservice ws;
+        Role role;
+        boolean userClick;
 
-        UserLoginTask(String email, String password) {
-            mEmail = email;
+        UserLoginTask(String email, String password, boolean userClick) {
+            mUsername = email;
             mPassword = password;
+            this.userClick = userClick;
+            ws = new Webservice();
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
 
             try {
                 // Simulate network access.
@@ -322,16 +329,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-
-            // TODO: register the new account here.
-            return true;
+            role = ws.login(mUsername, mPassword);
+            if(role == Role.NONE)
+                return false;
+            else
+                return true;
         }
 
         @Override
@@ -340,10 +342,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+                if(userClick)
+                    Application.getApplication().saveUsernamePassword(mUsername, mPassword);
+                gotoNextPage();
                 finish();
             } else {
-                etPassword.setError(getString(R.string.error_incorrect_password));
-                etPassword.requestFocus();
+                if(userClick) {
+                    etUsername.setError(getString(R.string.error_incorrect_password));
+                    etPassword.setError(getString(R.string.error_incorrect_password));
+                    etPassword.requestFocus();
+                }
             }
         }
 
@@ -357,6 +365,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private void gotoRegisterPage(){
         Intent intent = new Intent(this, RegisterActivity.class);
         this.startActivity(intent);
+    }
+
+    private void gotoNextPage(){
+        gotoRegisterPage();
+//        Intent intent = new Intent(this, StudentListActivity.class);
+//        this.startActivity(intent);
     }
 }
 

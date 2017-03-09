@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">دبیرستان شهید علیمردانی</string>
+    <string name="app_name">دبیرستان شهید رضایی</string>
+    <string name="school_name">دبیرستان شهید رضایی</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -9,14 +10,19 @@
     <string name="action_sign_in_short">ورود</string>
     <string name="action_register">ثبت نام</string>
     <string name="error_invalid_email">نام کاربری مجاز نیست</string>
-    <string name="error_invalid_password">گگذرواژه از حداقل مجاز کوتاه تر است</string>
-    <string name="error_incorrect_password">گذرواژه صحیح نیست</string>
+    <string name="error_invalid_password">گذرواژه از حداقل مجاز کوتاهتر است</string>
+    <string name="error_incorrect_password">نام کاربری یا گذرواژه نادرست است</string>
     <string name="error_field_required">این بخش حتما باید وارد شود</string>
-    <string name="school_name">دبیرستان شهید علیمردانی</string>
     <string name="first_name">نام</string>
     <string name="last_name">نام خانوادگی</string>
     <string name="phone_number">شماره تلفن</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_student_list">StudentListActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

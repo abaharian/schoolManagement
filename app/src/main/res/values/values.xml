@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="boolean" name="centered"/>
+    <attr format="color" name="fillColor"/>
+    <attr format="color" name="pageColor"/>
+    <attr format="boolean" name="snap"/>
+    <attr format="color" name="strokeColor"/>
+</resources>

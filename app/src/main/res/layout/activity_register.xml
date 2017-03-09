@@ -24,12 +24,6 @@
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ثبت نام در سامانه"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <!-- Login progress -->
     <ProgressBar

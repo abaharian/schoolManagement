@@ -17,7 +17,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="ورود به سامانه">
-            <intent-filter>
+            <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,9 +25,14 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="ثبت نام در سامانه">
-
-        </activity>
+            android:label="ثبت نام در سامانه"></activity>
+        <activity
+            android:name=".StudentListActivity"
+            android:label="@string/title_activity_student_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/school_name"></activity>
     </application>
 
 </manifest>
