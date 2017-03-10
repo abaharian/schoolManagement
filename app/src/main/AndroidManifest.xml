@@ -25,14 +25,11 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="ثبت نام در سامانه"></activity>
+            android:label="ثبت نام در سامانه" />
         <activity
             android:name=".StudentListActivity"
             android:label="@string/title_activity_student_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/school_name"></activity>
     </application>
 
 </manifest>

@@ -368,9 +368,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private void gotoNextPage(){
-        gotoRegisterPage();
-//        Intent intent = new Intent(this, StudentListActivity.class);
-//        this.startActivity(intent);
+        Intent intent = new Intent(this, StudentListActivity.class);
+        this.startActivity(intent);
     }
 }
 
