@@ -33,8 +33,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import webapi.Role;
-import webapi.Webservice;
+import com.baray.primitive.Role;
+import com.baray.tools.Webservice;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

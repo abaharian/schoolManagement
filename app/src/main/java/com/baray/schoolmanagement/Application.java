@@ -1,5 +1,7 @@
 package com.baray.schoolmanagement;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 
 /**
@@ -51,4 +53,10 @@ public final class Application extends android.app.Application {
     public void clearUsernamPassword(){
         saveUsernamePassword("", "");
     }
+
+    public void menuAboutClick(Activity caller){
+        Intent intent = new Intent(caller, AboutActivity.class);
+        caller.startActivity(intent);
+    }
+
 }

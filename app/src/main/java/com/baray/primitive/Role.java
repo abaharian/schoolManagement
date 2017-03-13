@@ -1,4 +1,4 @@
-package webapi;
+package com.baray.primitive;
 
 /**
  * Created by Akram on 3/8/2017.

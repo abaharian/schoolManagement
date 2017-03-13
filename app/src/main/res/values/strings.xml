@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">دبیرستان شهید رضایی</string>
     <string name="school_name">دبیرستان شهید رضایی</string>
+    <string name="school_unique_str">shahid_rezaee_sch</string>
+    <string name="school_website">www.rezaeeschool.ir</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -28,4 +30,9 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_child_list">ChildListActivity</string>
     <string name="toolbar_margin_top">10dp</string>
+
+    <string name="student_national_code">کد ملی دانش آموز</string>
+    <string name="student_first_name">نام دانش آموز</string>
+    <string name="student_last_name">نام خانوادگی دانش آموز</string>
+    <string name="title_activity_about">AboutActivity</string>
 </resources>

@@ -1,4 +1,6 @@
-package webapi;
+package com.baray.tools;
+
+import com.baray.primitive.Role;
 
 /**
  * Created by Akram on 3/8/2017.

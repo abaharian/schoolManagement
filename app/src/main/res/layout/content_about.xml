@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.baray.schoolmanagement.StudentListActivity">
+    tools:context="com.baray.schoolmanagement.AboutActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
     <!--<include layout="@layout/content_main" />-->
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar33"
+        android:id="@+id/about_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
@@ -52,42 +52,45 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
                 android:layout_toLeftOf="@id/menu_btn"
-                android:text="@string/school_name"
-                android:textColor="#FFF"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:text="@string/school_name"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFF" />
 
         </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/student_list_tv_alert"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="هیچ دانش آموزی در لیست شما وجود ندارد. لطفاً از گزینه (+) در پایین صفحه برای افزودن نام فرزندان خود استفاده کنید"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/list_view_student"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:divider="@null"
-            android:dividerHeight="0dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:text="درباره مدرسه"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        </ListView>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add_white_24dp"
-        app:backgroundTint="@color/colorPrimary" />
+            <TextView
+                android:id="@+id/about_tv_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="10dp"
+                android:text="سلام سوسیس"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
