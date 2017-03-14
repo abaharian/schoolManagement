@@ -147,7 +147,7 @@ public class StudentListActivity extends AppCompatActivity
         if (id == R.id.nav_about) {
             Application.getApplication().menuAboutClick(this);
         } else if (id == R.id.nav_gallery) {
-
+            Application.getApplication().menuGalleryClick(this);
         } else if (id == R.id.nav_map) {
 
         } else if (id == R.id.nav_logout) {

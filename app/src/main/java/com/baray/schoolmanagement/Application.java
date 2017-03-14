@@ -59,4 +59,9 @@ public final class Application extends android.app.Application {
         caller.startActivity(intent);
     }
 
+    public void menuGalleryClick(Activity caller){
+        Intent intent = new Intent(caller, GalleryActivity.class);
+        caller.startActivity(intent);
+    }
+
 }
