@@ -4,45 +4,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentRight="true"
-    android:gravity="center_vertical"
-    android:layout_marginTop="30dp">
+    android:layout_marginTop="30dp"
+    android:gravity="center_vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
+        android:background="@drawable/one_student_border"
         android:gravity="center_vertical"
-        android:background="@drawable/one_student_border">
+        android:layoutDirection="rtl">
 
-    <ImageView
-        android:id="@+id/one_stu_img"
-        android:layout_width="86dp"
-        android:layout_height="86dp"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/student"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/one_stu_tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="احمد ملازاده"
-        android:gravity="center_vertical"
-        android:layout_marginRight="15dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        <ImageView
+            android:id="@+id/one_stu_img"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/student" />
+
+        <TextView
+            android:id="@+id/one_stu_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:text="احمد ملازاده"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
         <!--android:layout_toLeftOf="@id/one_stu_img"-->
 
 
         <TextView
-        android:id="@+id/one_stu_tv_grade"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="چهارم الف"
-        android:gravity="center_vertical"
-        android:layout_marginRight="15dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"/>
+            android:id="@+id/one_stu_tv_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:text="چهارم الف"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
         <!--android:layout_toLeftOf="@id/one_stu_tv_name"-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutDirection="ltr">
+
+            <ImageView
+                android:id="@+id/one_stu_remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_menu_manage" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

@@ -15,6 +15,7 @@ import com.baray.primitive.Student;
 import com.baray.schoolmanagement.CourseListActivity;
 import com.baray.schoolmanagement.R;
 import com.baray.schoolmanagement.StudentListActivity;
+import com.baray.tools.Database;
 
 import java.util.ArrayList;
 
@@ -58,6 +59,7 @@ public class StudentAdapter extends ArrayAdapter<Student> {
         private TextView tvGrade;
         private ImageView photo;
         private View layout;
+        private View btnRemove;
 
         // Get a view and Cast it's controls.
         private viewHolder(View view) {
@@ -66,6 +68,7 @@ public class StudentAdapter extends ArrayAdapter<Student> {
             tvGrade = (TextView) view.findViewById(R.id.one_stu_tv_grade);
             photo = (ImageView) view.findViewById(R.id.one_stu_img);
             layout = view.findViewById(R.id.one_class_layout);
+            btnRemove = view.findViewById(R.id.one_stu_remove);
         }
 
         public void fill(final ArrayAdapter<Student> adapter,
@@ -103,14 +106,25 @@ public class StudentAdapter extends ArrayAdapter<Student> {
 
                 public void onClick(View v) {
 
-
                 }
             });
 
-
+            btnRemove.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    removeStudent(item, position);
+                }
+            });
 
         }
+
     }
 
+    private void removeStudent(Student s, int position){
+        if(context.getClass() == StudentListActivity.class){
+            StudentListActivity sla = (StudentListActivity) context;
+            sla.deleteStudent(s);
+        }
+    }
 
 }

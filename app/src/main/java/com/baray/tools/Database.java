@@ -98,4 +98,7 @@ public class Database {
         }
     }
 
+    public void removeChild(Student child){
+        database.delete(TBL_CHILD, COL_CHILD_NATIONAL_CODE + " = " + child.getNationalCode(), null);
+    }
 }

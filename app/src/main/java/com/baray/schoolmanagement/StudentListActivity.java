@@ -2,9 +2,12 @@ package com.baray.schoolmanagement;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -218,4 +221,28 @@ public class StudentListActivity extends AppCompatActivity
     }
 
 
+    public void deleteStudent(final Student item) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        String msg = "آیا مطمئن هستید می خواهید دانش آموز ";
+        msg += item.getFirstName() + " " + item.getLastName();
+        msg += " را حدف نمایید؟";
+        builder.setMessage(msg);
+        builder.setTitle("حذف دانش آموز");
+        builder.setPositiveButton("بله", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface arg0, int arg1) {
+                Database db = new Database();
+                db.initialize();
+                db.removeChild(item);
+                fillStudentList();
+            }
+        });
+        builder.setNegativeButton("خیر", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface arg0, int arg1) {
+            }
+        });
+        builder.create().show();
+
+    }
 }
