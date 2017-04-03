@@ -1,6 +1,7 @@
 package com.baray.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -11,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baray.primitive.Student;
+import com.baray.schoolmanagement.CourseListActivity;
 import com.baray.schoolmanagement.R;
+import com.baray.schoolmanagement.StudentListActivity;
 
 import java.util.ArrayList;
 
@@ -83,7 +86,12 @@ public class StudentAdapter extends ArrayAdapter<Student> {
             View.OnClickListener ocl = new View.OnClickListener() {
 
                 public void onClick(View v) {
-                    //TODO: goto next page
+                    try {
+                        Intent intent = new Intent(context, CourseListActivity.class);
+                        context.startActivity(intent);
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
                 }
             };
 
@@ -94,10 +102,12 @@ public class StudentAdapter extends ArrayAdapter<Student> {
             mainView.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View v) {
-                    // TODO Auto-generated method stub
+
 
                 }
             });
+
+
 
         }
     }

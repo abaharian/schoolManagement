@@ -1,6 +1,5 @@
 package com.baray.schoolmanagement;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,41 +12,39 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-public class AboutActivity extends AppCompatActivity
+public class CourseListActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.about_toolbar);
+        setContentView(R.layout.activity_course_list);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.ccl_toolbar);
         setSupportActionBar(toolbar);
 
-        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.cl_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.cl_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        fillAbout();
-
-        View btnMenu = findViewById(R.id.toolbar_menu_btn);
-        btnMenu.setOnClickListener(new View.OnClickListener() {
+        View menuBtn = findViewById(R.id.toolbar_menu_btn);
+        menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 drawer.openDrawer(GravityCompat.START);
+
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.cl_drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -58,7 +55,7 @@ public class AboutActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.about, menu);
+        getMenuInflater().inflate(R.menu.course_list, menu);
         return true;
     }
 
@@ -83,36 +80,22 @@ public class AboutActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_about) {
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            Application.getApplication().menuGalleryClick(this);
-        } else if (id == R.id.nav_map) {
 
-        } else if (id == R.id.nav_logout) {
-            Application.getApplication().clearUsernamPassword();
-            Intent intent = new Intent(this, LoginActivity.class);
-            this.startActivity(intent);
-            this.finish();
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    public void fillAbout(){
-        TextView tvAbout = (TextView)findViewById(R.id.about_tv_about);
-        String str = "دبیرستان شهید رضایی در سال 1391 در یکی از خوشنام ترین مناطق شهری ساری افتتاح گردید";
-        str += "\n\n";
-        str += "این مدرسه در اولین دوره خود بیش از 100 دانش آموز ثبت نام نمود که در نوع خود یک رکورد در سطح استان محسوب می شود. ";
-        str += "رمز موفقیت این مدرسه در استفاده از دبیران مجرب و مدیریت علمی آن است.";
-        str += "\n\n";
-        str += "آدرس: ساری، خ قارن، نبش قارن 8";
-        str += "\n\n";
-        str += "تلفن تماس: 22558877";
-
-        str += "\n\n" + str;
-        tvAbout.setText(str);
     }
 }

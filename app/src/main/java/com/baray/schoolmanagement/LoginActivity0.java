@@ -1,10 +1,7 @@
 package com.baray.schoolmanagement;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.os.PersistableBundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,16 +10,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
 
-public class AboutActivity extends AppCompatActivity
+/**
+ * Created by Akram on 3/28/2017.
+ */
+public class LoginActivity0 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.about_toolbar);
+    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+        setContentView(R.layout.activity_login_0);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.login_toolbar);
         setSupportActionBar(toolbar);
 
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -34,7 +33,7 @@ public class AboutActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        fillAbout();
+
 
         View btnMenu = findViewById(R.id.toolbar_menu_btn);
         btnMenu.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +42,7 @@ public class AboutActivity extends AppCompatActivity
                 drawer.openDrawer(GravityCompat.START);
             }
         });
+
     }
 
     @Override
@@ -83,36 +83,23 @@ public class AboutActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_about) {
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            Application.getApplication().menuGalleryClick(this);
-        } else if (id == R.id.nav_map) {
 
-        } else if (id == R.id.nav_logout) {
-            Application.getApplication().clearUsernamPassword();
-            Intent intent = new Intent(this, LoginActivity.class);
-            this.startActivity(intent);
-            this.finish();
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void fillAbout(){
-        TextView tvAbout = (TextView)findViewById(R.id.about_tv_about);
-        String str = "دبیرستان شهید رضایی در سال 1391 در یکی از خوشنام ترین مناطق شهری ساری افتتاح گردید";
-        str += "\n\n";
-        str += "این مدرسه در اولین دوره خود بیش از 100 دانش آموز ثبت نام نمود که در نوع خود یک رکورد در سطح استان محسوب می شود. ";
-        str += "رمز موفقیت این مدرسه در استفاده از دبیران مجرب و مدیریت علمی آن است.";
-        str += "\n\n";
-        str += "آدرس: ساری، خ قارن، نبش قارن 8";
-        str += "\n\n";
-        str += "تلفن تماس: 22558877";
-
-        str += "\n\n" + str;
-        tvAbout.setText(str);
-    }
 }

@@ -21,7 +21,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:layoutDirection="rtl"
-        app:headerLayout="@layout/nav_header_student_list"
+        app:headerLayout="@layout/navigation_header"
         app:menu="@menu/activity_student_list_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

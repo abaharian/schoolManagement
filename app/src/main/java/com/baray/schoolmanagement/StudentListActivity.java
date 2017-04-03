@@ -68,14 +68,14 @@ public class StudentListActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View header=navigationView.getHeaderView(0);
-        LinearLayout sideNavLayout = (LinearLayout)header.findViewById(R.id.nav_header_layout);
-        sideNavLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+//        LinearLayout sideNavLayout = (LinearLayout)header.findViewById(R.id.nav_header_layout);
+//        sideNavLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
-        menuButton = (ImageButton) findViewById(R.id.menu_btn);
+        menuButton = (ImageButton) findViewById(R.id.toolbar_menu_btn);
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                drawer.openDrawer(Gravity.RIGHT);
+                drawer.openDrawer(GravityCompat.START);
             }
         });
 
