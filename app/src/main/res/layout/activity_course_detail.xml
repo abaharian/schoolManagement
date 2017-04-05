@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/ccl_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:visibility="gone"></android.support.v7.widget.Toolbar>
-
     <include layout="@layout/toolbar"></include>
 
-    <!--student id-->
+    <!--student and course id-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +16,7 @@
         android:layoutDirection="rtl">
 
         <ImageView
-            android:id="@+id/ccl_stu_img"
+            android:id="@+id/cd_stu_img"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_alignParentRight="true"
@@ -32,7 +24,7 @@
             android:src="@drawable/student" />
 
         <TextView
-            android:id="@+id/ccl_stu_tv_name"
+            android:id="@+id/cd_stu_tv_name"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="15dp"
@@ -41,22 +33,46 @@
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
-            android:id="@+id/ccl_stu_tv_grade"
+            android:id="@+id/cd_stu_tv_grade"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="15dp"
             android:gravity="center_vertical"
             android:text="چهارم الف"
             android:textSize="10dp" />
+        <TextView
+            android:id="@+id/cd_stu_tv_course"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:text="ریاضی 1"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مشاهده همه          "
+            android:textSize="20dp"
+            android:id="@+id/cd_switch"
+            android:layoutDirection="rtl"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <ProgressBar
-            android:id="@+id/ccl_progress"
+            android:id="@+id/cd_progress"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,7 +80,7 @@
             android:layout_marginBottom="8dp" />
 
         <TextView
-            android:id="@+id/ccl_tv_wait"
+            android:id="@+id/cd_tv_wait"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -75,7 +91,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <ListView
-            android:id="@+id/ccl_list_view"
+            android:id="@+id/cd_list_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null"

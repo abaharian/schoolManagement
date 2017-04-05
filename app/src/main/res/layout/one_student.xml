@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/one_class_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_alignParentRight="true"
     android:layout_marginTop="30dp"
     android:gravity="center_vertical">
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:src="@drawable/ic_menu_manage" />
+                android:src="@drawable/ic_highlight_off_red_24dp" />
         </LinearLayout>
     </LinearLayout>
 

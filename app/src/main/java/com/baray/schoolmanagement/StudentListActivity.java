@@ -220,7 +220,6 @@ public class StudentListActivity extends AppCompatActivity
 
     }
 
-
     public void deleteStudent(final Student item) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         String msg = "آیا مطمئن هستید می خواهید دانش آموز ";

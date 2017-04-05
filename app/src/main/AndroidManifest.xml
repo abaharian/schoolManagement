@@ -26,8 +26,7 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".LoginActivity"
-            android:label="ورود به سامانه">
-        </activity>
+            android:label="ورود به سامانه"></activity>
         <activity
             android:name=".RegisterActivity"
             android:label="ثبت نام در سامانه" />
@@ -71,6 +70,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CourseDetailActivity"></activity>
     </application>
 
 </manifest>

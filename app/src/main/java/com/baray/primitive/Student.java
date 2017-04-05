@@ -2,10 +2,12 @@ package com.baray.primitive;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
+
 /**
  * Created by Akram on 3/10/2017.
  */
-public class Student {
+public class Student implements Serializable {
     private String nationalCode;
     private String firstName;
     private String lastName;

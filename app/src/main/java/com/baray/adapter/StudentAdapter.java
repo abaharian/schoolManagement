@@ -91,6 +91,7 @@ public class StudentAdapter extends ArrayAdapter<Student> {
                 public void onClick(View v) {
                     try {
                         Intent intent = new Intent(context, CourseListActivity.class);
+                        intent.putExtra("student", item);
                         context.startActivity(intent);
                     }catch(Exception e){
                         e.printStackTrace();
